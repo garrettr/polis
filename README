@@ -1,0 +1,10 @@
+To get started:
+
+git clone this repo
+cd into repo
+virtualenv --distribute env
+pip install -r requirements.txt
+
+Start: python run.py
+
+To to list dependencies: pip freeze > reqs.txt
