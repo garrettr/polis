@@ -1,6 +1,9 @@
 *.pyc
 *.swp
 .DS_Store
+
 env/
+lenv/
 python-votesmart/
+
 .sunlight.key
