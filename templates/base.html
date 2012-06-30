@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>{% block title %}polis{% endblock %}</title>
+    <script src="{{ url_for('static', filename='js/jquery-1.7.2-dev.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/polis.js') }}"></script>
   </head>
   <body>
     {% block content %}{% endblock %}
