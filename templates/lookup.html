@@ -1,0 +1,9 @@
+<p>Your representatives are:</p>
+
+{% if valid %}{% else %}<p>The address you entered was not valid.</p>{% endif %}
+
+<ul>
+{% for rep in reps %}
+  <li>{{ rep.title }} {{ rep.firstname }} {{ rep.lastname }}</li>
+{% endfor %}
+</ul>

@@ -11,10 +11,10 @@ app.debug = True # never use in production
 
 def build_google_geocoding_query(address, region="us", sensor="false"):
     '''
-    Returns a url suitable for performing a lookup with the Google geocoding
-    API
+    Returns a url for a lookup with the Google geocoding API
     '''
-    return "http://maps.googleapis.com/maps/api/geocode/json?" + urlencode( locals() )
+    return "http://maps.googleapis.com/maps/api/geocode/json?" \
+            + urlencode( locals() )
 
 def geocode_address(address):
     '''
@@ -45,7 +45,7 @@ def lookup_reps( gc ):
 
     # lookup reps for this lat/lng with Sunlight Congress API
     representatives = sunlight.congress.legislators_for_lat_lon(lat, lng)
-    return str(representatives)
+    return representatives
 
 @app.route('/lookup')
 def lookup():
@@ -57,10 +57,9 @@ def lookup():
 
     # Geocode the address
     gc = geocode_address( address )
-    if valid_address_lookup( gc ):
-        return lookup_reps( gc )
-    else:
-        return "We couldn't resolve that address!"
+    valid = valid_address_lookup( gc )
+    reps = lookup_reps( gc )
+    return render_template("lookup.html", valid=valid, reps=reps)
 
 @app.route('/')
 def address_form():
