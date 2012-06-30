@@ -1,7 +1,8 @@
-<!doctype html>
-<title>polis</title>
+{% extends "base.html" %}
 
+{% block content %}
 <form action="lookup" method="get">
     What's your address? <input type="text" name="address" />
     <input type="submit" value="Lookup" />
 </form>
+{% endblock %}

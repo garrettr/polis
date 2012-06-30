@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <p>Your representatives are:</p>
 
 {% if valid %}{% else %}<p>The address you entered was not valid.</p>{% endif %}
@@ -7,3 +11,5 @@
   <li>{{ rep.title }} {{ rep.firstname }} {{ rep.lastname }}</li>
 {% endfor %}
 </ul>
+
+{% endblock %}
