@@ -31,9 +31,6 @@ def valid_address_lookup( json ):
     if json['status'] == "OK":
         return True
 
-def lookup_reps_by_lat_lng(lat, lng):
-    return sunlight.congress.legislators_for_lat_lon(lat, lng)
-
 @app.route('/lookup')
 def lookup():
     # Make sure we got input for the address
@@ -54,9 +51,11 @@ def lookup():
         # undefined query
         pass
 
-    reps = lookup_reps_by_lat_lng( lat, lng )
+    reps = sunlight.congress.legislators_for_lat_lon(lat, lng)
+    district = sunlight.congress.districts_for_lat_lon(lat, lng)[0] # default
 
-    return render_template("lookup.html", valid=valid, reps=reps)
+    return render_template("lookup.html", valid=valid, reps=reps,
+            district=district)
 
 @app.route('/')
 def address_form():
