@@ -9,6 +9,7 @@ function handle_geolocation_result(position) {
   console.log( 'Lat: ' + position.coords.latitude +
                'Lng: ' + position.coords.longitude
     );
+
 }
 
 function handle_geolocation_error(error) {
@@ -32,6 +33,28 @@ function handle_geolocation_error(error) {
   }
 }
 
+function lookupAddress(address) {
+  params = { 'address': address };
+  $('#results').load("lookup?" + $.param(params));
+}
+
+function lookupCoordinates(lat, lng) {
+}
+
 $(document).ready(function () {
+
+  /* Lookup user's location with the HTML5 geolocation API */
   $("#geolocate").click(geolocate);
+
+  /* Lookup user's location by asking for their address */
+  $("form").submit(function (){
+    /* copy input values into an object */
+    var values = {};
+    $.each($(this).serializeArray(), function(i, field) {
+      values[field.name] = field.value;
+    });
+    lookupAddress(values.address);
+    return false;
+  });
+
 });

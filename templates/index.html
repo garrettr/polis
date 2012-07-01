@@ -3,8 +3,12 @@
 {% block content %}
 <form action="lookup" method="get">
     What's your address? <input type="text" name="address" />
-    <input type="submit" value="Lookup" />
+    <input type="submit" id="address-submit" value="Lookup" />
 </form>
 
-<button id="geolocate">Find my location</button>
+<p>-or-</p>
+
+<button id="geolocate">Use Geolocation API</button>
+
+<div id="results"></div>
 {% endblock %}
