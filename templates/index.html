@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="lookup" method="get">
-    What's your address? <input type="text" name="address" />
-    <input type="submit" id="address-submit" value="Lookup" />
-</form>
+<div class="container">
 
-<p>-or-</p>
+  <div class="row">
+    <div class="span6 offset3">
 
-<button id="geolocate">Use Geolocation API</button>
+      <h1 id="title">polis</h1>
+      <button id="geolocate" class="btn btn-large btn-primary">Use Geolocation API</button>
 
-<div id="results"></div>
+      <p id="or">- or -</p>
+
+      <form action="lookup" method="get" class="well form-search">
+        <input type="text" name="address" placeholder="What's your address?" class="search-query">
+        <input type="submit" value="Lookup" id="address-submit" class="btn">
+      </form>
+
+      <div id="results"></div>
+    </div>
+  </div>
+
+</div>
 {% endblock %}

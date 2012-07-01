@@ -8,11 +8,11 @@
 
 {% if valid %}{% else %}<p>The address you entered was not valid.</p>{% endif %}
 
-<ul>
+<ul id="reps">
 {% for rep in reps %}
-<li>
+<li class="party {{ rep.party }}">
   <img src=" {{ url_for('static', filename='img/100x125/' + rep.bioguide_id + '.jpg') }}" />
-  {{ rep.title }} {{ rep.firstname }} {{ rep.lastname }}
+  {{ rep.title }}. {{ rep.firstname }} {{ rep.lastname }}
 </li>
 {% endfor %}
 </ul>
