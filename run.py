@@ -7,8 +7,6 @@ import json
 
 import sunlight
 
-app.debug = True # never use in production
-
 def build_google_geocoding_query(address, region="us", sensor="false"):
     '''
     Returns a url for a lookup with the Google geocoding API
@@ -65,4 +63,6 @@ def address_form():
     return render_template("index.html")
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
+    # demo on local network
+    #app.run(debug=False, host='0.0.0.0')
