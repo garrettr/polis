@@ -33,32 +33,31 @@ def valid_address_lookup( json ):
     if json['status'] == "OK":
         return True
 
-def lookup_reps( gc ):
-    '''
-    Return a list of representatives based on address
-    Use the Sunlight Congress API - we can lookup by zip code or lat/lng
-    '''
-    # assuming first returned result is correct
-    result = gc["results"][0]
-    lat = result["geometry"]["location"]["lat"]
-    lng = result["geometry"]["location"]["lng"]
-
-    # lookup reps for this lat/lng with Sunlight Congress API
-    representatives = sunlight.congress.legislators_for_lat_lon(lat, lng)
-    return representatives
+def lookup_reps_by_lat_lng(lat, lng):
+    return sunlight.congress.legislators_for_lat_lon(lat, lng)
 
 @app.route('/lookup')
 def lookup():
     # Make sure we got input for the address
-    try:
-        address = request.args['address']
-    except KeyError:
-        return "You don't live nowhere!"
+    valid = True
 
-    # Geocode the address
-    gc = geocode_address( address )
-    valid = valid_address_lookup( gc )
-    reps = lookup_reps( gc )
+    if 'lat' in request.args:
+        lat = request.args["lat"]
+        lng = request.args["lng"]
+    elif 'address' in request.args:
+        # Geocode the address
+        geocode_output = geocode_address( request.args['address'] )
+        valid = valid_address_lookup( geocode_output )
+        # assuming first returned result is correct
+        result = geocode_output["results"][0]
+        lat = result["geometry"]["location"]["lat"]
+        lng = result["geometry"]["location"]["lng"]
+    else:
+        # undefined query
+        pass
+
+    reps = lookup_reps_by_lat_lng( lat, lng )
+
     return render_template("lookup.html", valid=valid, reps=reps)
 
 @app.route('/')

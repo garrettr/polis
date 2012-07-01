@@ -10,6 +10,7 @@ function handle_geolocation_result(position) {
                'Lng: ' + position.coords.longitude
     );
 
+  lookupCoordinates(position.coords.latitude, position.coords.longitude)
 }
 
 function handle_geolocation_error(error) {
@@ -39,6 +40,8 @@ function lookupAddress(address) {
 }
 
 function lookupCoordinates(lat, lng) {
+  params = { 'lat': lat, 'lng': lng };
+  $('#results').load("lookup?" + $.param(params));
 }
 
 $(document).ready(function () {
