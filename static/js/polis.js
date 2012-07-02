@@ -35,20 +35,24 @@ function handle_geolocation_error(error) {
 }
 
 function lookupAddress(address) {
+  $('div#results').hide();
   $('img.loading').show();
+
   params = { 'address': address };
   $('#results').load("lookup?" + $.param(params), function() {
     $('img.loading').hide();
-    $(this).hide().fadeIn('slow');
+    $(this).fadeIn('slow');
   });
 }
 
 function lookupCoordinates(lat, lng) {
+  $('div#results').hide();
   $('img.loading').show();
+
   params = { 'lat': lat, 'lng': lng };
   $('#results').load("lookup?" + $.param(params), function() {
     $('img.loading').hide();
-    $(this).hide().fadeIn('slow');
+    $(this).fadeIn('slow');
   });
 }
 
