@@ -1,0 +1,7 @@
+<li class="party {{ rep.party }}">
+  <img src=" {{ url_for('static', filename='img/100x125/' + rep.bioguide_id + '.jpg') }}" />
+  {{ rep.title }}. {{ rep.firstname }} {{ rep.lastname }} <br>
+  <a href="{{ rep.website }}">Website</a>
+  <a href="https://twitter.com/{{ rep.twitter_id }}">Twitter</a>
+  <a href="https://facebook.com/{{ rep.facebook_id }}">Facebook</a>
+</li>
