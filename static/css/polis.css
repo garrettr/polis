@@ -1,7 +1,16 @@
+div#header {
+  margin-bottom:24px;
+}
+
 h1#title {
   font: 48px/1.4 serif;
   text-align:center;
-  margin-bottom:24px;
+}
+
+p.definition {
+  font: 16px/1.4 serif;
+  text-align:center;
+  color:#888;
 }
 
 button#geolocate {
