@@ -26,17 +26,20 @@ ul#reps {
 
 li {
   margin-bottom:12px;
-  border-radius: 8px;
-  padding:12px;
+  margin-left:-8px;
+  padding:8px;
+  overflow: auto; /* clear floats - make sure portraits fit inside div */
 }
 
 
 li.party.D {
-  background:#B5D5FF; 
+  /*background:#B5D5FF; */
+  border-left:#5776FF solid 3px;
 }
 
 li.party.R {
-  background:#FFB5B5;
+  /*background:#FFB5B5;*/
+  border-left:#FF5757 solid 3px;
 }
 
 img.center {
@@ -47,4 +50,12 @@ img.center {
 
 input.address {
   width:340px;
+}
+
+img.portrait {
+  float:right;
+}
+
+h3.repname {
+  margin-bottom:8px;
 }

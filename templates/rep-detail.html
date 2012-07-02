@@ -1,7 +1,7 @@
 <li class="party {{ rep.party }}">
-  <img src=" {{ url_for('static', filename='img/100x125/' + rep.bioguide_id + '.jpg') }}" />
-  {{ rep.title }}. {{ rep.firstname }} {{ rep.lastname }} <br>
-  <a href="{{ rep.website }}">Website</a>
-  <a href="https://twitter.com/{{ rep.twitter_id }}">Twitter</a>
-  <a href="https://facebook.com/{{ rep.facebook_id }}">Facebook</a>
+  <img class="portrait" src=" {{ url_for('static', filename='img/100x125/' + rep.bioguide_id + '.jpg') }}" />
+  <h3 class="repname">{{ rep.firstname }} {{ rep.lastname }}</h3>
+  <p><a href="{{ rep.website }}"><img src="{{ url_for('static', filename='img/www.png') }}"> Website</a></p>
+  <p><a href="https://twitter.com/{{ rep.twitter_id }}"><img src="{{ url_for('static', filename='img/twitter.png') }}"> Twitter</a></p>
+  <p><a href="https://facebook.com/{{ rep.facebook_id }}"><img src="{{ url_for('static', filename='img/facebook.png') }}"> Facebook</a></p>
 </li>
