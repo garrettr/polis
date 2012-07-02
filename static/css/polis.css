@@ -24,6 +24,13 @@ ul#reps {
   margin-left:0;
 }
 
+li {
+  margin-bottom:12px;
+  border-radius: 8px;
+  padding:12px;
+}
+
+
 li.party.D {
   background:#B5D5FF; 
 }
