@@ -35,13 +35,19 @@ function handle_geolocation_error(error) {
 }
 
 function lookupAddress(address) {
+  $('#results').append('<img class="center" src="/static/img/loading.gif">');
   params = { 'address': address };
-  $('#results').load("lookup?" + $.param(params));
+  $('#results').load("lookup?" + $.param(params), function() {
+    $(this).hide().fadeIn('slow');
+  });
 }
 
 function lookupCoordinates(lat, lng) {
+  $('#results').append('<img class="center" src="/static/img/loading.gif">');
   params = { 'lat': lat, 'lng': lng };
-  $('#results').load("lookup?" + $.param(params));
+  $('#results').load("lookup?" + $.param(params), function() {
+    $(this).hide().fadeIn('slow');
+  });
 }
 
 $(document).ready(function () {

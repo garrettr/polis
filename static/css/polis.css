@@ -38,3 +38,9 @@ li.party.D {
 li.party.R {
   background:#FFB5B5;
 }
+
+img.center {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
