@@ -35,22 +35,26 @@ function handle_geolocation_error(error) {
 }
 
 function lookupAddress(address) {
-  $('#results').append('<img class="center" src="/static/img/loading.gif">');
+  $('img.loading').show();
   params = { 'address': address };
   $('#results').load("lookup?" + $.param(params), function() {
+    $('img.loading').hide();
     $(this).hide().fadeIn('slow');
   });
 }
 
 function lookupCoordinates(lat, lng) {
-  $('#results').append('<img class="center" src="/static/img/loading.gif">');
+  $('img.loading').show();
   params = { 'lat': lat, 'lng': lng };
   $('#results').load("lookup?" + $.param(params), function() {
+    $('img.loading').hide();
     $(this).hide().fadeIn('slow');
   });
 }
 
 $(document).ready(function () {
+
+  $('img.loading').hide();
 
   /* Lookup user's location with the HTML5 geolocation API */
   $("#geolocate").click(geolocate);
