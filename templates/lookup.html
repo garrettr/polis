@@ -1,6 +1,6 @@
 {% if valid %}{% else %}<p class="warning">The address you entered was not valid.</p>{% endif %}
 
-<h2>Your {{ district.state }} senators are: </h2>
+<h2>Your {{ district.state }} Senators are: </h2>
 
 <ul id="reps">
 {% for rep in reps %}
@@ -11,7 +11,7 @@
 </ul>
 
 <h2>Your Congressional district is: {{ district.state }} {{ district.number }}</h2>
-<h2>Your representative is:</h2>
+<h2>Your Representative is:</h2>
 
 <ul id="reps">
 {% for rep in reps %}
